@@ -1,7 +1,4 @@
 module.exports = {
-    css: [
-        '@/assets/tw.css',
-    ],
     content: [
       "./components/**/*.{js,vue,ts}",
       "./layouts/**/*.vue",
@@ -29,6 +26,14 @@ module.exports = {
             "light-info": "#00BFE5",
             "light-succes": "#00E500", 
             "light-warning": "#E5E500",
+
+            "dark-bg": "#21232C",
+
+            "dark-text": "#D3D3DE",
+            "dark-text2": "#A7A7BE",
+
+            "light-text": "#21212C",
+            "light-text2": "#494950",
           }
       },
     },

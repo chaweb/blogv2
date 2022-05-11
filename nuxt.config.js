@@ -3,7 +3,7 @@ export default {
   head: {
     title: 'blogv2',
     htmlAttrs: {
-      lang: 'fr'
+      lang: 'fr',
     },
     meta: [
       { charset: 'utf-8' },
@@ -18,6 +18,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '@/assets/tw.sass'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -31,15 +32,29 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxt/postcss8',
+    '@nuxtjs/color-mode',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/color-mode',
     'nuxt-material-design-icons-iconfont',
-    '@nuxtjs/proxy'
+    '@nuxtjs/proxy',
+    ['nuxt-breakpoints', {
+        breakpoints: {
+        // default options
+          sm: 576,
+          md: 768,
+          lg: 992,
+          xl: 1200,
+          options: {
+            polyfill: true,
+            throttle: 200
+          }
+        }
+    }]
   ],
   proxy: {
     '/api/': { target: 'https://admin.chaweb.fr', pathRewrite: {'^/api/': '/graphql'}}

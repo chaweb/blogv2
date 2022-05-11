@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200300400500600700800&family=Inter:wght@100200300400500600700800900&display=swap')
+@tailwind base
+@tailwind components
+@tailwind utilities
+
+@layer utilities 
+  .font-dosis 
+    font-family: 'Dosis', sans-serif
+  
+  .font-inter 
+    font-family: 'Inter', sans-serif
+  
+
+
+@layer components 
+  .title, .content  h1
+    @apply text-5xl font-dosis font-bold text-light-text
+  
+  .subtitle, .content  h2
+    @apply text-4xl font-inter text-light-text
+  
+  .paragraph, .content  p
+    @apply text-lg font-inter text-light-text2
+
+  .dark
+    .title, .content  h1
+      @apply text-dark-text
+    .subtitle, .content  h2
+      @apply text-dark-text
+    .paragraph, .content  p
+      @apply text-dark-text2
+
+   
+@layer
+  .dark
+    body
+      @apply bg-dark-bg

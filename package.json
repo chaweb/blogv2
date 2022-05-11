@@ -13,6 +13,7 @@
     "@nuxtjs/proxy": "^2.1.0",
     "core-js": "^3.19.3",
     "nuxt": "^2.15.8",
+    "nuxt-breakpoints": "^1.1.9",
     "nuxt-material-design-icons-iconfont": "^1.0.2",
     "vue": "^2.6.14",
     "vue-server-renderer": "^2.6.14",
@@ -20,7 +21,7 @@
     "webpack": "^4.46.0"
   },
   "devDependencies": {
-    "@nuxtjs/color-mode": "^3.0.3",
+    "@nuxtjs/color-mode": "^2.1.1",
     "@nuxtjs/tailwindcss": "^4.2.1",
     "postcss": "^8.4.4",
     "pug": "^3.0.2",
