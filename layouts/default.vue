@@ -2,7 +2,7 @@
 #layout
     navbar.navbar(:id="opened ? 'opened' : ''")
         button(@click="opened = !opened" )#openMenu
-            p(v-if="opened" class="text-xl" ) fermer navigation
+            p(v-if="opened" ) fermer navigation
             icon(:color="$colorMode.value === 'dark'? '#D3D3DE': '#21212C'" :size="20" :icon="opened?'arrow_back_ios' : 'arrow_forward_ios'")
         
         nuxtLink(to="/")
