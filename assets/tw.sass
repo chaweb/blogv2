@@ -32,7 +32,7 @@
 
    
 @layer base
-  @media (orientation: portrait) 
+  @media (orientation: portrait) and (max-width: 1280px) 
     body
       @apply mx-2 ml-12 my-2
     .navbar
@@ -64,8 +64,16 @@
         @apply bg-gray-600
         & > p 
           @apply text-dark-text
+      &> a#dropdownButton:hover > div#dropdown
+        @apply bg-gray-800
+        & > ul
+          & > li
+            @apply text-dark-text
+            &:hover
+              @apply bg-gray-900
+          
 
-  @media (orientation: landscape) 
+  @media (orientation: landscape) and (max-width: 1280px) 
     body
       @apply mx-2 my-2 mb-10
     .navbar
@@ -80,3 +88,34 @@
         &#openMenu
           & > div
             transform: rotate(-90deg)
+          
+  
+  @media (min-width:1280px)
+    body
+      @apply mx-2 my-2 mb-10
+    .navbar
+      @apply fixed left-0 top-0 flex flex-row w-full h-10 duration-200 ease-in-out bg-gray-200 justify-start 
+      &#opened
+        @apply h-20
+      & > button, & > a
+        @apply bg-gray-300 mx-2 w-40 flex flex-row justify-center items-center
+        & > p
+          @apply text-light-text2 mx-2 inline-block align-middle
+      & > a#dropdownButton
+        @apply relative 
+        & >div#dropdown
+          @apply absolute top-10 opacity-0 duration-200 ease-in pointer-events-none
+          transform: translateY(-1.5rem) scale(0.9)
+          & > ul
+            & > li
+              @apply py-1 px-5
+        &:hover > div#dropdown
+          @apply opacity-100 duration-200 ease-in pointer-events-auto bg-gray-300 py-2  
+          transform: translateY(0) scale(1)
+          & > ul
+            & > li
+              @apply py-1 px-5
+              &:hover
+                @apply bg-gray-100
+      &>button#colorMode
+        @apply w-96 px-10 mx-3 ml-auto justify-self-end 
