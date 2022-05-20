@@ -1,5 +1,5 @@
 <template lang="pug">
-.content
+.content(style="height:400vh")
   h1 Coucou
   p j'aime bien
 </template>

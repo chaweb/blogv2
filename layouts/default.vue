@@ -25,7 +25,8 @@
             p(v-if="opened" class="text-xl" ) thème : {{$colorMode.preference === 'system' ? 'système' : ($colorMode.preference === 'dark' ? 'noir' : 'blanc') }}
             icon(:color="$colorMode.value === 'dark'? '#D3D3DE': '#21212C'" :size="20" :icon="$colorMode.preference === 'system' ? 'computer' : ($colorMode.preference === 'dark' ? 'brightness_2' : 'brightness_high')")
         #after(@click="opened = !opened" )
-    nuxt
+    .app(class="overflow-auto")
+        nuxt
 
 
 #layout(v-else)
@@ -55,10 +56,15 @@
             p contact
             icon(:color="$colorMode.value === 'dark'? '#D3D3DE': '#21212C'" :size="20" icon="alternate_email")
 
+        nuxtLink(to="/bigTesty")
+            p big testy
+            icon(:color="$colorMode.value === 'dark'? '#D3D3DE': '#21212C'" :size="20" icon="lunch_dining")
+
         button(@click="changeColors()" )#colorMode
             p thème : {{$colorMode.preference === 'system' ? 'système' : ($colorMode.preference === 'dark' ? 'noir' : 'blanc') }}
             icon(:color="$colorMode.value === 'dark'? '#D3D3DE': '#21212C'" :size="20" :icon="$colorMode.preference === 'system' ? 'computer' : ($colorMode.preference === 'dark' ? 'brightness_2' : 'brightness_high')")
-    nuxt
+    .app(class="overflow-auto m-16 p-2 py-4 border-t-2 border-b-2 border-solid border-primary" style="max-height: 90vh;")
+        nuxt(style="min-height:85vh" )
 </template>
 
 <script>

@@ -4,6 +4,7 @@ export default {
     title: 'blogv2',
     htmlAttrs: {
       lang: 'fr',
+      class:'overflow-hidden'
     },
     meta: [
       { charset: 'utf-8' },

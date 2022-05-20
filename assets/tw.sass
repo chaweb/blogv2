@@ -92,7 +92,7 @@
   
   @media (min-width:1280px)
     body
-      @apply mx-2 my-2 mb-10
+      @apply mx-2 my-2 mt-10
     .navbar
       @apply fixed left-0 top-0 flex flex-row w-full h-10 duration-200 ease-in-out bg-gray-200 justify-start 
       &#opened
@@ -105,16 +105,19 @@
         @apply relative 
         & >div#dropdown
           @apply absolute top-10 opacity-0 duration-200 ease-in pointer-events-none
+          filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1))
           transform: translateY(-1.5rem) scale(0.9)
           & > ul
             & > li
               @apply py-1 px-5
         &:hover > div#dropdown
-          @apply opacity-100 duration-200 ease-in pointer-events-auto bg-gray-300 py-2  
+          @apply opacity-100 duration-200 ease-in pointer-events-auto bg-gray-300 py-2
           transform: translateY(0) scale(1)
           & > ul
+            @apply flex flex-col gap-2
             & > li
               @apply py-1 px-5
+              transform: scale(1.04)
               &:hover
                 @apply bg-gray-100
       &>button#colorMode
