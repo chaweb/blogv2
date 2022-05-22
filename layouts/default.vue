@@ -63,8 +63,8 @@
         button(@click="changeColors()" )#colorMode
             p thème : {{$colorMode.preference === 'system' ? 'système' : ($colorMode.preference === 'dark' ? 'noir' : 'blanc') }}
             icon(:color="$colorMode.value === 'dark'? '#D3D3DE': '#21212C'" :size="20" :icon="$colorMode.preference === 'system' ? 'computer' : ($colorMode.preference === 'dark' ? 'brightness_2' : 'brightness_high')")
-    .app(class="overflow-auto m-16 p-2 py-4 border-t-2 border-b-2 border-solid border-primary" style="max-height: 90vh;")
-        nuxt(style="min-height:85vh" )
+    .app(class="overflow-auto m-16 mx-auto p-2 py-4 " style="max-width: 1000px; max-height: 85vh")
+        nuxt(style="min-height:85vh")
 </template>
 
 <script>
