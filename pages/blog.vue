@@ -13,19 +13,19 @@ export default {
         }
     },
   async mounted() {
-                await (this.$axios.$post('/api/',{"query" :`
-                        {
-                            blog {
-                                id
-                                tag
-                                titre
-                                lien
-                            }
-                        }`
-                    }).then(resolve => {this.blogs = resolve.data.blog})
-                    .catch(function (error) {
-                        console.log(error);
-                    }))
+        await (this.$axios.$post('/api/',{"query" :`
+                {
+                    blog {
+                        id
+                        tag
+                        titre
+                        lien
+                    }
+                }`
+            }).then(resolve => {this.blogs = resolve.data.blog})
+            .catch(function (error) {
+                console.log(error);
+            }))
 
   }
 }

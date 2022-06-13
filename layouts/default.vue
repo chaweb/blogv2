@@ -25,7 +25,7 @@
             p(v-if="opened" class="text-xl" ) thème : {{$colorMode.preference === 'system' ? 'système' : ($colorMode.preference === 'dark' ? 'noir' : 'blanc') }}
             icon(:color="$colorMode.value === 'dark'? '#D3D3DE': '#21212C'" :size="20" :icon="$colorMode.preference === 'system' ? 'computer' : ($colorMode.preference === 'dark' ? 'brightness_2' : 'brightness_high')")
         #after(@click="opened = !opened" )
-    .app(class="overflow-auto")
+    .app(class="")
         nuxt
 
 
@@ -63,8 +63,8 @@
         button(@click="changeColors()" )#colorMode
             p thème : {{$colorMode.preference === 'system' ? 'système' : ($colorMode.preference === 'dark' ? 'noir' : 'blanc') }}
             icon(:color="$colorMode.value === 'dark'? '#D3D3DE': '#21212C'" :size="20" :icon="$colorMode.preference === 'system' ? 'computer' : ($colorMode.preference === 'dark' ? 'brightness_2' : 'brightness_high')")
-    .app(class="overflow-auto m-16 mx-auto p-2 py-4 " style="max-width: 1000px; max-height: 85vh")
-        nuxt(style="min-height:85vh")
+    .app(class="m-16 mx-auto p-2 py-4 " style="max-width: 1000px; ")
+        nuxt(style="")
 </template>
 
 <script>

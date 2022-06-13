@@ -4,7 +4,7 @@ export default {
     title: 'blogv2',
     htmlAttrs: {
       lang: 'fr',
-      class:'overflow-hidden'
+      class:'overflow-x-hidden'
     },
     meta: [
       { charset: 'utf-8' },
@@ -53,7 +53,11 @@ export default {
           polyfill: true,
           throttle: 200
         }
-    }]
+    }],
+    ['nuxt-highlightjs', {
+      style: 'docco'
+    }],
+    ['nuxt-clipboard', { autoSetContainer: true }]
   ],
   proxy: {
     '/api/': { target: 'https://admin.chaweb.fr', pathRewrite: {'^/api/': '/graphql'}}
