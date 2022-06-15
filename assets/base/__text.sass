@@ -1,1 +1,66 @@
 //Tous les styles de textes
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200300400500600700800&family=Inter:wght@100200300400500600700800900&display=swap')
+
+
+@for $i from 1 through 6 
+    h#{7-$i}
+        font-size: calc($i/1.5 *1rem)
+        font-family: 'Dosis', sans-serif
+        @if $i < 6
+            font-size: calc($i/2.5 *1rem)
+            font-family: 'Inter', sans-serif
+
+            
+
+        color: mix($light-text, $light-text--2, calc($i / 6 * 100))
+        @include dark
+            color: mix($dark-text, $dark-text--2, calc($i / 6 * 100))
+
+p
+    font-size: 1.5rem
+    font-family: 'Inter', sans-serif
+
+.text
+    @extend p
+    &.dosis
+        font-family: 'Dosis', sans-serif
+    &.inter
+        font-family: 'Inter', sans-serif
+    &.base
+        font-family: initial
+    @each $name, $list in $allLight
+        @each $i,$color in $list
+            &.#{$name}--#{$i}
+                color: $color
+    @include dark
+        @each $name, $list in $allDark
+            @each $i,$color in $list
+                &.#{$name}--#{$i}
+                    color: $color
+
+a
+    @extend p
+    cursor: select
+    color: $primary
+    @each $name, $list in $allLight
+        @each $i,$color in $list
+            &.#{$name}--#{$i}
+                color: $color
+    @include dark
+        @each $name, $list in $allDark
+            @each $i,$color in $list
+                &.#{$name}--#{$i}
+                    color: $color
+    &:hover
+        color: darken($primary, 10%)
+        @each $name, $list in $allLight
+            @each $i,$color in $list
+                &.#{$name}--#{$i}
+                    color: darken($color,10%)
+        @include dark
+            color: lighten($primary, 10%)
+            @each $name, $list in $allDark
+                @each $i,$color in $list
+                    &.#{$name}--#{$i}
+                        color: lighten($color,10%)
+    

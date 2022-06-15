@@ -1,6 +1,6 @@
 <template lang="pug">
-#layout(v-if="isntComputer")
-    navbar.navbar(:id="opened ? 'opened' : ''")
+.layout(v-if="isntComputer")
+    navbar.navbar(:class="opened ? 'opened' : ''")
         button(@click="opened = !opened" )#openMenu
             p(v-if="opened" ) fermer navigation
             icon(:color="$colorMode.value === 'dark'? '#D3D3DE': '#21212C'" :size="20" :icon="opened?'arrow_back_ios' : 'arrow_forward_ios'")
@@ -22,14 +22,14 @@
             icon(:color="$colorMode.value === 'dark'? '#D3D3DE': '#21212C'" :size="20" icon="alternate_email")
 
         button(@click="changeColors()" )
-            p(v-if="opened" class="text-xl" ) thème : {{$colorMode.preference === 'system' ? 'système' : ($colorMode.preference === 'dark' ? 'noir' : 'blanc') }}
+            p(v-if="opened") : {{$colorMode.preference === 'system' ? 'système' : ($colorMode.preference === 'dark' ? 'noir' : 'blanc') }}
             icon(:color="$colorMode.value === 'dark'? '#D3D3DE': '#21212C'" :size="20" :icon="$colorMode.preference === 'system' ? 'computer' : ($colorMode.preference === 'dark' ? 'brightness_2' : 'brightness_high')")
         #after(@click="opened = !opened" )
     .app(class="")
         nuxt
 
 
-#layout(v-else)
+.layout(v-else)
     navbar.navbar(:id="opened ? 'opened' : ''")
         nuxtLink(to="/")
             p menu
@@ -64,7 +64,8 @@
             p thème : {{$colorMode.preference === 'system' ? 'système' : ($colorMode.preference === 'dark' ? 'noir' : 'blanc') }}
             icon(:color="$colorMode.value === 'dark'? '#D3D3DE': '#21212C'" :size="20" :icon="$colorMode.preference === 'system' ? 'computer' : ($colorMode.preference === 'dark' ? 'brightness_2' : 'brightness_high')")
     .app(class="m-16 mx-auto p-2 py-4 " style="max-width: 1000px; ")
-        nuxt(style="")
+        nuxt
+        button.btn
 </template>
 
 <script>
@@ -88,7 +89,7 @@ export default {
         }
     },
     computed: {
-        isntComputer () {return this.$breakpoints.sLg },
+        isntComputer () {return this.$breakpoints.sMd },
     }
 }
 </script>

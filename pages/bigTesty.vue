@@ -1,7 +1,17 @@
 <template lang="pug">
 .content(style="height:400vh")
   h1 Coucou
-  h2 subtitle
+  h2.text.popup--info subtitle
+  h3 subsubtitle
+  h4 description
+  h5 je ne sais pas quoi mettre
+  h6 A
+  a je suis un lien vers quelques chose
+  br
+  .text.dosis text en dosis
+  .text.inter text en inter
+  .text.base text avec la police par defaut
+  a.primary--2 je suis un autre lien mais en couleur
   p Ceci est un test de tous les composants utiliser pour un bon article. 
   blockquote
     img(src="https://cdn.pixabay.com/photo/2017/01/08/13/58/cube-1963036__340.jpg")

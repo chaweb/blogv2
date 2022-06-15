@@ -1,0 +1,11 @@
+.navbar
+    display: flex
+    position: fixed
+    @include screen("+lg")
+        flex-direction: row
+        height: 10rem
+        width: 100%
+    @include screen("-lg")
+        flex-direction: column
+        height: 100%
+        width: 10rem
