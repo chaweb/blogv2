@@ -1,0 +1,30 @@
+.citation
+    @include my(10)
+    max-width: 100%
+    display: flex
+    padding: 2rem
+    border-radius: 45px 45px 45px 0
+    background-color: darken($light-bg, 10%)
+    @include dark
+        background-color: lighten($dark-bg, 10%)
+    &__content
+        display: flex
+        flex-direction: column
+    &__title
+        font-size: 3rem
+    &__image
+        object-fit: cover
+        border-radius: 10px
+        width: 250px
+        height: 250px
+        @include orientation('portrait')
+            margin: 0 auto
+    @include screen('-lg')
+        flex-direction: column
+        @include orientation('landscape')
+            &__content
+                flex-direction: row
+                column-gap: 2rem
+    @include screen('+lg')
+        flex-direction: row
+        column-gap: 2rem

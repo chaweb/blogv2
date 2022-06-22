@@ -37,6 +37,18 @@
     @if ($screen == '+xl') //superieur au grand écran
         @media (min-width: 1280px)
             @content
+
+//orientation de l'écran
+    //lanscrape : paysage
+    //portrait : portrait.
+
+@mixin orientation($screen : 'landscape')
+    @if ($screen == 'landscape')
+        @media (orientation: landscape)
+            @content
+    @if ($screen == 'portrait')
+        @media (orientation: portrait)
+            @content
     
 //flexbox
 
@@ -47,13 +59,14 @@
 //'right' => met à droite l'item
 
 @mixin flex($pos : 'center')
+    display: flex
     @if ($pos == 'center')
         justify-content: center
         align-content: center
         
     @if ($pos == 'top')
         justify-content: center
-        align-content: start
+        align-content: flex-start
         
     @if ($pos == 'bottom')
         justify-content: center

@@ -1,0 +1,12 @@
+body
+    background-color: $light-bg
+    @include dark
+        background-color: $dark-bg
+    .app
+        @include screen("-lg")
+            padding-left: 6rem
+        @include screen("+lg")
+            padding-top: 2.5rem
+            width: 100vw
+        @include flex('top')
+        flex-direction: row

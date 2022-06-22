@@ -1,11 +1,184 @@
 .navbar
+    $transition: .3s cubic-bezier(1,0,0,1) //transition 
     display: flex
     position: fixed
-    @include screen("+lg")
+    left: 0
+    background-color: transparentize($light-bg,0 )
+    &__element
+        background-color: #ddd
+        color: $light-text
+    @include dark
+        background-color: transparentize($dark-bg,0)
+        &__element
+            background-color: invert(#ddd)
+            color: $dark-text
+            
+    @include screen
         flex-direction: row
-        height: 10rem
-        width: 100%
+        height: 5rem
+        width: 100vw
+        left: 0
     @include screen("-lg")
-        flex-direction: column
-        height: 100%
-        width: 10rem
+        $w : 60% //largueur de la navbar ouverte
+        
+        @include orientation('portrait')
+            @include py(2)
+            @include px(0)
+            flex-direction: column
+            height: 100%
+            width: 5rem
+            transition: $transition
+            top: 0
+            &__element
+                @include my(2)
+                @include mx(0)
+                @include flex()
+
+                max-height: 3rem
+                flex-direction: row
+                transition: $transition
+                p 
+                    line-height:100%
+                    font-size: 0
+                    transition: $transition
+                #opened &
+                    p
+                        font-size: 1rem
+
+            &__breaker
+                min-height: 0
+                height: 100%
+            &__dropdown
+                display: none
+            &:after
+                position: fixed
+                height: 100%
+                width: 0
+                content: ''
+                display: inline-block
+                top: 0
+                right: 0
+                background: #aaaaaa55
+                transition: $transition
+                @include dark
+                    background: invert(#aaaaaa55)
+            &#opened
+                width: $w
+                &::after
+                    width: 100% - $w
+
+        @include orientation
+            box-sizing: border-box
+            @include py(0)
+            @include px(2)
+            column-gap: 4px
+            grid-template-columns: repeat(8, minmax(calc(12.5% - 6px), min-content))
+            bottom: 0
+            width: 100vw
+            height: 2.5rem
+            transition: $transition
+
+            &__element
+                @include mx(2)
+                @include flex('center')
+                @include my(0)
+                width: 100%
+                flex-direction: column-reverse
+                transition: $transition
+                border: solid 0 $light-secondary
+                border-bottom: none
+                p
+                    text-align: center
+                    font-size: 0
+                    transition: $transition
+                    @include flex('center')
+                #opened &
+                    margin-top: 1rem
+                    p
+                        font-size: 1rem
+                    border-width: 1px
+                @include dark
+                    border-color: $dark-secondary
+
+
+            &__breaker
+                min-width: 0
+                width: 100%
+            &__dropdown
+                display: none
+            &#opened
+                height: $w
+    @include screen("+lg")
+        top: 0
+        box-sizing: border-box
+        @include py(0)
+        @include px(2)
+        column-gap: 4px
+        grid-template-columns: repeat(8, minmax(calc(12.5% - 6px), min-content))
+        width: 100vw
+        height: 2.5rem
+        &__element
+            display: flex
+            flex-direction: row-reverse
+            margin: 0 .5rem
+            padding: 0 .5rem
+            p
+                height: 65%
+                width: max-content
+                font-size: 1.25rem
+                margin: auto 0
+            @include dark
+                border-color: $light-secondary
+
+            box-shadow: 0 -1000px 10px $light-secondary, 0 0 0 white
+
+            
+            &.navbar__dropdown, & > ul
+                box-shadow: 0 0 0 $light-secondary
+
+            &, & > ul
+                transition: box-shadow $transition
+            &:hover, &:hover >ul
+                box-shadow: 0 0 20px $light-secondary, 0 0 5px white
+
+            @include dark
+                box-shadow: 0 -1000px 10px $dark-secondary, 0 0 0 white
+                &.navbar__dropdown, & > ul
+                    box-shadow: 0 0 0 $dark-secondary, 0 0 0 white
+
+                &, & > ul
+                    transition: box-shadow $transition
+                &:hover, &:hover >ul
+                    box-shadow: 0 0 20px $dark-secondary, 0 0 5px white
+                
+        &__dropdown
+            > ul
+                pointer-events: none
+                position: absolute
+                top: 70%
+                transform: translateX(50%) translateY(-50%) scale(0)
+                opacity: 0
+                padding: 1rem 1rem
+                list-style: none
+                transition: $transition
+                margin: 10px
+                li    
+                    padding: .5rem 2rem
+                    margin: .25rem 0
+            &:hover > ul
+                transform: translateX(50%) translateY(0) scale(1)
+                background-color: #ddd
+                pointer-events: auto
+                opacity: 1
+                @include dark
+                    background-color: lighten(invert(#ddd), 10%)
+                li    
+                    &:hover
+                        background-color: transparentize(darken(#ddd, 10%), .5)
+                        @include dark
+                            background-color: transparentize(lighten(invert(#ddd), 20%), .5)
+        &__breaker
+            min-width: 0
+            width: 100%
+        &__open
+            display: none

@@ -16,37 +16,47 @@
         @include dark
             color: mix($dark-text, $dark-text--2, calc($i / 6 * 100))
 
-p
-    font-size: 1.5rem
+@mixin text
+    font-size: 1.25rem
     font-family: 'Inter', sans-serif
 
+    
+
+p
+    @include text
+    color: $light-text
+    @include dark
+        color: $dark-text 
+
 .text
-    @extend p
+    @include text
     &.dosis
         font-family: 'Dosis', sans-serif
-    &.inter
-        font-family: 'Inter', sans-serif
     &.base
         font-family: initial
     @each $name, $list in $allLight
         @each $i,$color in $list
             &.#{$name}--#{$i}
                 color: $color
+    color: $light-text
     @include dark
+        color: $dark-text
         @each $name, $list in $allDark
             @each $i,$color in $list
                 &.#{$name}--#{$i}
                     color: $color
 
 a
-    @extend p
-    cursor: select
+    @include text
+    cursor: pointer
     color: $primary
+    text-decoration: none
     @each $name, $list in $allLight
         @each $i,$color in $list
             &.#{$name}--#{$i}
                 color: $color
     @include dark
+        font-weight: bold
         @each $name, $list in $allDark
             @each $i,$color in $list
                 &.#{$name}--#{$i}
