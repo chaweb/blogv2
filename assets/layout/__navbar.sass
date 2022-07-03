@@ -121,6 +121,7 @@
             display: flex
             flex-direction: row-reverse
             margin: 0 .5rem
+            position: relative
             padding: 0 .5rem
             p
                 height: 65%
@@ -129,27 +130,21 @@
                 margin: auto 0
             @include dark
                 border-color: $light-secondary
-
-            box-shadow: 0 -1000px 10px $light-secondary, 0 0 0 white
-
             
-            &.navbar__dropdown, & > ul
-                box-shadow: 0 0 0 $light-secondary
-
-            &, & > ul
-                transition: box-shadow $transition
-            &:hover, &:hover >ul
-                box-shadow: 0 0 20px $light-secondary, 0 0 5px white
-
-            @include dark
-                box-shadow: 0 -1000px 10px $dark-secondary, 0 0 0 white
-                &.navbar__dropdown, & > ul
-                    box-shadow: 0 0 0 $dark-secondary, 0 0 0 white
-
-                &, & > ul
-                    transition: box-shadow $transition
-                &:hover, &:hover >ul
-                    box-shadow: 0 0 20px $dark-secondary, 0 0 5px white
+            &::after 
+                right: 0
+            &::before
+                left: 0
+            &::after, &::before
+                content: ""
+                position: absolute
+                width: 5px
+                height: 0
+                background-color: $light-secondary
+                transition: .3s
+            &:hover
+                &::after, &::before
+                    height: 100%
                 
         &__dropdown
             > ul
