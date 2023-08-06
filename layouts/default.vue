@@ -39,7 +39,22 @@
     nuxt
 
     .botbar
-        .botbar__element
+        .botbar__cat
+            h4.botbar__elem Create and deploy with
+            a(href="https://nuxtjs.org/" target="blank_").botbar__elem nuxtJs
+        .botbar__cat
+            h4.botbar__elem navigation
+            nuxtLink(to="/").botbar__elem menu
+            nuxtLink(to="/bio").botbar__elem biographie
+            nuxtLink(to="/blog").botbar__elem blog
+            nuxtLink(to="/contact").botbar__elem contact
+            nuxtLink(to="/bigTesty").botbar__elem bigTesty
+
+        bottombar.botbar__cat
+            h4.botbar__elem contact me
+            a(href="https://www.instagram.com/charlie_is_trans_girl/" target="blank_").botbar__elem instragram
+            a(href="mailto:pro.m.houdmond@outlook.com").botbar__elem email
+        
 </template>
 
 

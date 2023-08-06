@@ -1,5 +1,5 @@
 <template lang="pug">
-.content(class="flex justify-center items-center flex-col")
+.content
     h1 Error {{error.statusCode}}
     p {{error.message}} 
         span(v-if="error.path") to {{error.path}}

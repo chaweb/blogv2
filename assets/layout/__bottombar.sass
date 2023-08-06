@@ -1,0 +1,30 @@
+.botbar
+    position: absolute
+    bottom: 0
+    width: 100vw
+    box-sizing: border-box
+    z-index: 0
+    background-color: #ddd
+    @include dark
+        background-color: lighten(invert(#ddd), 10%)
+    padding: 2.5rem 2rem 1.5rem
+    display: flex
+    margin-top: auto
+    flex-direction: row
+    flex-wrap: wrap
+    gap: 3rem
+    h4 //title
+        margin-bottom: 1rem
+    &__cat
+        margin: 0 1rem
+        display: flex
+        flex-direction: column
+    &__elem
+        margin: .5rem 0
+        position: relative
+        font-size: 1.10rem
+        & + &
+            font-size: .85rem
+            color: $light-text
+            @include dark
+                color: $dark-text

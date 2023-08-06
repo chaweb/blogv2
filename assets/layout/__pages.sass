@@ -10,3 +10,12 @@ body
             width: 100vw
         @include flex('top')
         flex-direction: row
+
+    .layout
+        position: relative
+        min-height: 100vh
+        @include screen("-lg")
+            @include orientation('landscape')
+                padding-bottom: 1rem
+            @include orientation('portrait')
+                padding-left: 5rem

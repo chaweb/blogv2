@@ -1,4 +1,5 @@
 .navbar
+    z-index: 2
     $transition: .3s cubic-bezier(1,0,0,1) //transition 
     display: flex
     position: fixed
@@ -51,6 +52,7 @@
             &__dropdown
                 display: none
             &:after
+                backdrop-filter: blur(4px)
                 position: fixed
                 height: 100%
                 width: 0
@@ -108,7 +110,7 @@
                 display: none
             &#opened
                 height: $w
-    @include screen("+lg")
+    @include screen()
         top: 0
         box-sizing: border-box
         @include py(0)
@@ -138,7 +140,7 @@
             &::after, &::before
                 content: ""
                 position: absolute
-                width: 5px
+                width: 3px
                 height: 0
                 background-color: $light-secondary
                 transition: .3s
